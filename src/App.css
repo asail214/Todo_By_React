@@ -1,40 +1,23 @@
-/* Reset and Base Styles */
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  direction: rtl;
-  overflow-x: hidden;
-}
-
-/* App Wrapper */
-.app-wrapper {
-  min-height: 100vh;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Override Bootstrap default body styles */
-body.bg-light {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-}
-
-/* Ensure the main container is properly centered */
+/* Perfect Centering Solution */
 .d-flex.justify-content-center.align-items-center.min-vh-100 {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   min-height: 100vh !important;
-  padding: 20px;
-  margin: 0;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+  padding: 20px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Ensure card is properly positioned */
+.card {
+  position: relative !important;
+  margin: 0 auto !important;
 }
 
 /* Card Enhancements */

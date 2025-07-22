@@ -79,8 +79,8 @@ function Home() {
   const pendingTodos = totalTodos - completedTodos;
 
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center min-vh-100" dir="rtl">
-      <div className="card shadow-lg p-4" style={{ maxWidth: '700px', width: '100%', margin: 'auto' }}>
+    <div className="d-flex justify-content-center align-items-center min-vh-100 position-relative" dir="rtl" style={{ padding: '20px', width: '100vw', height: '100vh' }}>
+      <div className="card shadow-lg p-4" style={{ maxWidth: '700px', width: '100%', position: 'relative', zIndex: 1 }}>
         <div className="card-body">
           {/* Header */}
           <div className="text-center mb-4">
