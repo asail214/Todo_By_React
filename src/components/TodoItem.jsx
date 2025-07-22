@@ -2,13 +2,39 @@ import React from 'react';
 
 export default function TodoItem({ todo, onDelete, onEdit, onToggleComplete, isEditing }) {
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('ar-SA', {
+    const date = new Date(dateString);
+    
+    // Use Arabic locale with Gregorian calendar (not Hijri)
+    return date.toLocaleDateString('ar-EG', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
+      hour12: true,
+      timeZone: 'Asia/Muscat',
+      calendar: 'gregory' // Force Gregorian calendar
     });
+    
+    /* 
+    // Alternative: Custom Arabic format with Gregorian calendar
+    const arabicMonths = [
+      'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+      'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+    ];
+    
+    const day = date.getDate();
+    const month = arabicMonths[date.getMonth()];
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'م' : 'ص';
+    
+    if (hours > 12) hours -= 12;
+    if (hours === 0) hours = 12;
+    
+    return `${day} ${month} ${year} - ${hours}:${minutes} ${ampm}`;
+    */
   };
 
   return (
