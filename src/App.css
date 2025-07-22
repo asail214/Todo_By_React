@@ -1,88 +1,201 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
 }
 
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+/* App Wrapper */
+.app-wrapper {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  
-  background: repeating-linear-gradient(
-    white,
-    white 30px,
-    #f5f5f5 31px
-  );
-  font-family: 'Cairo', sans-serif;
-  background-color: #fffef5;
-  direction: rtl;
 }
 
-.todo-app {
-  max-width: 600px;
-  margin: 40px auto;
+/* Override Bootstrap default body styles */
+body.bg-light {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Ensure the main container is properly centered */
+.d-flex.justify-content-center.align-items-center.min-vh-100 {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 100vh !important;
   padding: 20px;
-  background-color: #fff9db;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  margin: 0;
 }
 
-.todo-form input {
-  margin-left: 10px;
+/* Card Enhancements */
+.card {
+  border: none;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
 }
 
+/* Todo Form Styling */
+.todo-form {
+  margin-bottom: 2rem;
+}
+
+.todo-form .form-control {
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.todo-form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.todo-form .btn {
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.todo-form .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Todo Item Styling */
 .todo-item {
-  background: white;
-  border: 2px dashed #ddd;
-  border-radius: 8px;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
-
-.footer {
-  text-align: center;
-  margin-top: 40px;
-  color: #555;
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Statistics Cards */
+.bg-primary {
+  background: linear-gradient(45deg, #007bff, #0056b3) !important;
 }
 
-@keyframes logo-spin {
+.bg-success {
+  background: linear-gradient(45deg, #28a745, #1e7e34) !important;
+}
+
+.bg-warning {
+  background: linear-gradient(45deg, #ffc107, #e0a800) !important;
+}
+
+/* Animations */
+@keyframes slideIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .card {
-  padding: 2em;
+  animation: slideIn 0.5s ease-out;
 }
 
-.read-the-docs {
-  color: #888;
+/* Custom Checkbox */
+.form-check-input:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.form-check-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button Hover Effects */
+.btn-outline-warning:hover,
+.btn-outline-danger:hover {
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.text-center .display-1 {
+  font-size: 4rem;
+  opacity: 0.3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 10px !important;
+  }
+  
+  .card {
+    margin: 10px !important;
+    max-width: 95% !important;
+  }
+  
+  .todo-form .form-control {
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+  
+  .todo-form .btn {
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    max-width: 100% !important;
+    margin: 5px !important;
+  }
+  
+  .container-fluid {
+    padding: 5px !important;
+  }
+}
+
+/* Arabic Font Optimization */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+.card-body h1 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Smooth Transitions */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus States */
+.btn:focus,
+.form-control:focus {
+  outline: none;
+}
+
+/* Loading Animation for Future Use */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  animation: spin 1s linear infinite;
 }
